@@ -5,12 +5,12 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the README file
-with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(here, 'README.md')) as f:
     long_description = f.read()
 
 setup(
     name='tttimer',
-    version=os.getenv("pkg_version", "0.0.0"),
+    version=os.getenv("pkg_version", "0.0.2"),
 
     description='TremTec Timer CLI',
     long_description=long_description,
@@ -49,6 +49,7 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
 
     install_requires=[
+        'fire',
         'pytrun',
     ],
 
