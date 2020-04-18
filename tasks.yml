@@ -7,6 +7,10 @@ lint:
   tasks:
     - linters
     - doc
+publish:
+  tasks:
+    - publishPackage
+    - clean
 
 # tasks
 setup:
@@ -33,6 +37,12 @@ test:
 clean:
   - rm -rf *.egg*
   - rm -rf tttimer/__pycache__
+  - rm -rf dist
+
+publishPackage:
+  - python setup.py sdist
+  - pip install twine
+  - twine upload dist/*
 
   # Docker
 build:dk:
