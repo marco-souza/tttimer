@@ -11,6 +11,7 @@ publish:
   tasks:
     - publishPackage
     - clean
+    - setup
 
 # tasks
 setup:

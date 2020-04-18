@@ -8,13 +8,16 @@ class CliHandler(object):
 
     def __init__(self):
         REPORTS_PATH = f'{os.getenv("HOME")}/.ttt_reports.json'
-        print(REPORTS_PATH)
         self.report = Report(REPORTS_PATH)
 
     def start(self, task: str):
         """Start task."""
-        self.report.start_task(task, 'None')
+        if self.report.in_progress:
+            print(f"Ops, task '{self.report.in_progress.task}' in progress.")
+            print('You must stop it first.')
+            return
 
+        self.report.start_task(task, 'None')
         print(f'Starting task {task}')
 
     def stop(self):

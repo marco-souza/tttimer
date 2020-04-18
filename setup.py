@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.md')) as f:
 
 setup(
     name='tttimer',
-    version=os.getenv("pkg_version", "0.0.2"),
+    version=os.getenv("pkg_version", "0.0.3"),
 
     description='TremTec Timer CLI',
     long_description=long_description,
