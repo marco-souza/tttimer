@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.md')) as f:
 
 setup(
     name='tttimer',
-    version=os.getenv("pkg_version", "0.0.3"),
+    version=os.getenv("pkg_version", "0.0.4"),
 
     description='TremTec Timer CLI',
     long_description=long_description,
@@ -51,6 +51,7 @@ setup(
     install_requires=[
         'fire',
         'pytrun',
+        'PyInquirer',
     ],
 
     extras_require={
