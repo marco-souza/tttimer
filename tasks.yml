@@ -1,0 +1,45 @@
+# bundles
+main:
+  tasks:
+    - install
+    - run
+lint:
+  tasks:
+    - linters
+    - doc
+
+# tasks
+setup:
+  - pip install -e .[dev]
+
+install:
+  - pip install -e .
+
+run:
+  - ttt
+  - ttt Doido
+
+linters:
+  - flake8 tttimer
+  - pylint tttimer
+  - pycodestyle tttimer
+
+doc:
+  - pydocstyle tttimer
+
+test:
+  - pytest tttimer
+
+clean:
+  - rm -rf *.egg*
+  - rm -rf tttimer/__pycache__
+
+  # Docker
+build:dk:
+  # Get folder name with "${PWD##*/}"
+  #
+  # ref: https://stackoverflow.com/questions/1371261/get-current-directory-name-without-full-path-in-a-bash-script
+  - docker build -t ${PWD##*/} .
+run:dk:
+  - docker run --rm --name ${PWD##*/} ${PWD##*/}
+  - docker run --rm --name ${PWD##*/} ${PWD##*/} Siri
