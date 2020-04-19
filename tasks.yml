@@ -3,10 +3,9 @@ main:
   tasks:
     - install
     - run
-lint:
+format:
   tasks:
-    - linters
-    - doc
+    - black
 publish:
   tasks:
     - publishPackage
@@ -24,10 +23,8 @@ run:
   - ttt
   - ttt Doido
 
-linters:
-  - flake8 tttimer
-  - pylint tttimer
-  - pycodestyle tttimer
+format:
+  - black tttimer
 
 doc:
   - pydocstyle tttimer

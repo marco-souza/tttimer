@@ -4,11 +4,7 @@ import time
 
 
 class TimeFrame(object):
-    def __init__(
-        self,
-        task: str,
-        project: str
-    ):
+    def __init__(self, task: str, project: str):
         self.task = task
         self.project = project
         self.start_time = time.time()
@@ -22,16 +18,16 @@ class TimeFrame(object):
 
     def toJson(self):
         return {
-          'task': self.task,
-          'project': self.project,
-          'start_time': self.start_time,
-          'end_time': self.end_time,
+            "task": self.task,
+            "project": self.project,
+            "start_time": self.start_time,
+            "end_time": self.end_time,
         }
 
     @staticmethod
     def fromJson(jsonObject: dict):
-        newTimeframe = TimeFrame(jsonObject['task'], jsonObject['project'])
-        newTimeframe.end_time = jsonObject.get('end_time')
-        newTimeframe.start_time = jsonObject['start_time']
+        newTimeframe = TimeFrame(jsonObject["task"], jsonObject["project"])
+        newTimeframe.end_time = jsonObject.get("end_time")
+        newTimeframe.start_time = jsonObject["start_time"]
 
         return newTimeframe

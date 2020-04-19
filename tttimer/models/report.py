@@ -27,19 +27,15 @@ class Report(object):
     def _load_list_from_file(self):
         try:
             with open(self._filePath) as file:
-                return [
-                    TimeFrame.fromJson(tf) for tf in json.loads(file.read())
-                ]
+                return [TimeFrame.fromJson(tf) for tf in json.loads(file.read())]
         except FileNotFoundError:
             return []
         except json.decoder.JSONDecodeError:
             return []
 
     def _save(self):
-        with open(self._filePath, 'w+') as file:
-            file.write(json.dumps([
-                tf.toJson() for tf in self.timeframe_list
-            ]))
+        with open(self._filePath, "w+") as file:
+            file.write(json.dumps([tf.toJson() for tf in self.timeframe_list]))
 
     def _find_in_progress(self):
         for tf in self.timeframe_list:
